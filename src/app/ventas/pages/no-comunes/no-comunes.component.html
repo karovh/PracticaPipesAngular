@@ -1,1 +1,116 @@
-<p>no-comunes works!</p>
+
+<div class="text-layout">
+    <h1>Pipes no tan comunes</h1>
+    <p>
+        Pipes incluidos en angular, usualmente en el common module.
+    </p>
+</div>
+
+<!-- Fieldset es un componente de agrupación con la función 
+    de cambio de contenido opcional. -->
+<div class="p-grid">
+    <div class="p-col p-md-6 p-sm-9">     
+        
+        <!-- i18nSelect Pipe Selector genérico que muestra la cadena que coincide con el valor actual.
+        {{ value_expression | i18nSelect : mapping }} -->
+
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+           <p>
+            Saludos {{nombre}}, es un placer
+            {{genero | i18nSelect: invitacionMapa }} 
+            a nuestro evento.
+           </p>
+           <button (click)="cambiarPersona()" 
+           pButton          
+           label="Cambiar Persona">
+           </button>
+        </p-fieldset>
+    </div>
+    
+    <div class="p-col p-md-6 p-sm-9">        
+        <!-- i18nPlural pipe Asigna un valor a una cadena que pluraliza el valor de 
+            acuerdo con las reglas locales. -->
+            <!-- {{ value_expression | i18nPlural : pluralMap [ : locale ] }} -->
+        
+            <p-fieldset legend="i18nPlural pipe" [toggleable]="true">
+            <p>
+                Actualmente  {{clientes.length | i18nPlural:clientesMapa }}.
+            </p>
+            <button 
+            (click)="borrarCliente()" 
+            pButton          
+            label="Borrar Cliente">
+               
+            </button>
+        </p-fieldset>
+    </div>
+
+
+    <div class="p-col p-md-6 p-sm-9">       
+        <!-- Slice Pipe Crea un nuevo Arrayo Stringque contiene un 
+            subconjunto (porción) de los elementos.     
+        {{ value_expression | slice : start [ : end ] }}   -->
+        
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <b>Orginal</b>
+            <pre>{{clientes}}</pre>
+
+            <b>slice:0:2</b>
+            <pre>{{clientes | slice:0:2}}</pre>
+
+            <b>slice:1:3</b>
+            <pre>{{clientes | slice:1:3}}</pre>
+
+            <b>slice:2:4</b>
+            <pre>{{clientes | slice:2:4}}</pre>
+                      
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6 p-sm-9">       
+        <!-- Convierte un valor en su representación en formato JSON. Útil para la depuración..
+        {{ value_expression | json }}        -->
+        
+        <p-fieldset legend="Json pipe" [toggleable]="true">
+            <pre>{{heroes| json}}</pre>    
+        </p-fieldset>
+    </div>
+
+
+    <div class="p-col p-md-6 p-sm-9">       
+        <!-- Transforma Object o Map en una matriz de pares de valores clave.
+        {{ input_expression | keyvalue [ : compareFn ] }}        -->
+        
+        <p-fieldset legend="keyvalue pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let item of persona |keyvalue">
+                    {{item.key}}:{{item.value}}                    
+                </li>
+            </ul>    
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6 p-sm-9">       
+        <!-- Desenvuelve un valor de una primitiva asíncrona..
+       {{ obj_expression | async }}     
+    	Observable<T> | Subscribable<T> | Promise<T>   -->
+        
+        <p-fieldset legend="Async pipe" [toggleable]="true">
+             
+            <pre *ngIf="!(miObservable | async)">Resolviendo Promesa</pre>
+            <pre>{{miObservable | async}}</pre>
+             
+            <pre *ngIf="!(valorPromesa | async)">Resolviendo Promesa</pre>             
+            <pre>{{valorPromesa | async}}</pre>
+        
+        </p-fieldset>
+    </div>
+
+    
+    
+</div>
+
+
+
+
+
