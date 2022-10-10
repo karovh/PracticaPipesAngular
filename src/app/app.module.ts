@@ -24,7 +24,7 @@ registerLocaleData(localeEs)
     BrowserAnimationsModule,
     SharedModule,
     AppRouterModule,
-    VentasModule,
+    VentasModule
 
   ],
   providers: [

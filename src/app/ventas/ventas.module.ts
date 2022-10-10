@@ -8,6 +8,11 @@ import { NoComunesComponent } from './pages/no-comunes/no-comunes.component';
 import { BasicosComponent } from './pages/basicos/basicos.component';
 import { OrdenarComponent } from './pages/ordenar/ordenar.component'
 
+import { MayusculasPipe } from './pipes/mayusculas.pipe';
+import { VolarPipe } from './pipes/volar.pipe';
+import { OrdenarPipe } from './pipes/ordenar.pipe';
+
+
 
 
 
@@ -16,7 +21,12 @@ import { OrdenarComponent } from './pages/ordenar/ordenar.component'
     NumerosComponent,
     NoComunesComponent,
     BasicosComponent,
-    OrdenarComponent
+    OrdenarComponent,
+    //
+    MayusculasPipe,
+    VolarPipe,
+    OrdenarPipe
+
   ],
   imports: [
     CommonModule,
